@@ -1,0 +1,13 @@
+amount,ingredients,optional
+500 g, miesa wieprzowego,False
+200 g, kielbasy,False
+1, cebula,False
+2, lyzki oleju roslinnego,False
+3, szklanki bulionu lub wody,False
+30 g, suszonych borowikow,True
+2 lyzki, powidel sliwkowych lub kilka suszonych sliwek,True
+1, jablko,True
+1 kg, kiszonej kapusty,False
+1 łyżka, koncentratu pomidorowego,True
+1 łyżka, maki,True
+1 łyżka, masla,True
