@@ -1,4 +1,4 @@
-#Importy
+# Importy
 ```python
 import json
 import requests
@@ -6,7 +6,7 @@ import requests
 import csv
 import pandas
 ```
-#JSON
+# JSON
 ```python
 data = {
     "postId": 1,
@@ -16,18 +16,18 @@ data = {
     "body": "harum non quasi et ratione\ntempore iure ex voluptates in ratione\nharum architecto fugit inventore cupiditate\nvoluptates magni quo et"
   }
 ```
-##Tworzenie pliku o nazwie data_file.json i otworzenie go w write-mode.
+## Tworzenie pliku o nazwie data_file.json i otworzenie go w write-mode.
 ```python
 with open("data_file.json", "w") as write_file:
     json.dump(data, write_file)
 ```
-##Zapisywanie do natywnego obiektu string
+## Zapisywanie do natywnego obiektu string
 ```python
 json_string = json.dumps(data)
 
 json.dumps(data, indent=4)
 ```
-##Deserializacja JSON
+## Deserializacja JSON
 ```python
 
 richest_people = (2, "Jeff Bezos")
@@ -51,7 +51,7 @@ with open("data_file.json", "r") as read_file:
     
 data
 ```
-##Deserializacja obiektu typu String
+## Deserializacja obiektu typu String
 ```python
 json_string = """
 {
@@ -65,18 +65,18 @@ json_string = """
 
 data = json.loads(json_string)
 ```
-##JSONPlaceholder - requests
+## JSONPlaceholder - requests
 ```python
 response = requests.get("https://jsonplaceholder.typicode.com/photos")
 photos = json.loads(response.text)
 ```
-##10 wyników z naszego requesta json
+## 10 wyników z naszego requesta json
 ```python
 print(photos == response.json())
 print(type(photos))
 print(photos[:10])
 ```
-##Nadłuższy komentarz ze zdjęcia oraz album, który go zawiera
+## Nadłuższy komentarz ze zdjęcia oraz album, który go zawiera
 ```python
 photos_by_album={}
 
@@ -102,7 +102,7 @@ title_string = " and ".join(album_longest_titile)
 s = "s" if len(album_longest_titile)>1 else ""
 print(f'In album{s} {title_string} we have longest title with {longest_title[0][1]} signs')
 ```
-##Filtrowanie zdjęcia z nadłuższym komentarzem
+## Filtrowanie zdjęcia z nadłuższym komentarzem
 ```python
 albums = longest_title[:10]
 
@@ -118,7 +118,7 @@ with open("filtered_data_file.json","w") as data_file:
     filtered_photos = list(filter(keep,photos))
     json.dump(filtered_photos,data_file,indent=2)
 ```
-##Kodowanie i odkodowywanie niestandardowych objektów python'a
+## Kodowanie i odkodowywanie niestandardowych objektów python'a
 ```python
 class Elf:
     def __init__(self, level, ability_scores=None):
@@ -142,9 +142,9 @@ with open("complex_json.json") as complex_data:
 print(type(numbers))
 numbers
 ```
-#CSV
-##Odczytanie poprzez metody reader w klasie CSV utworzonego pliku txt
-###Wyświetlając po indeksach wiersza
+# CSV
+## Odczytanie poprzez metody reader w klasie CSV utworzonego pliku txt
+### Wyświetlając po indeksach wiersza
 ```python
 with open('bigos_recipe.txt') as csv_file:
     csv_reader = csv.reader(csv_file, delimiter=',')
@@ -158,7 +158,7 @@ with open('bigos_recipe.txt') as csv_file:
             line_count += 1
     print(f'Processed {line_count} lines.')
 ```
-###Wyświetlając po nazwie danego wiersza
+### Wyświetlając po nazwie danego wiersza
 ```python
 with open('bigos_recipe.txt', mode='r') as csv_file:
     csv_reader = csv.DictReader(csv_file)
@@ -171,7 +171,7 @@ with open('bigos_recipe.txt', mode='r') as csv_file:
         line_count += 1
     print(f'Processed {line_count} lines.')
 ```
-##Utworzenie oraz zapisanie pliku CSV
+## Utworzenie oraz zapisanie pliku CSV
 ```python
 with open('bigos_recipe.csv', mode='w') as bigos_recipe:
     employee_writer = csv.writer(bigos_recipe, delimiter=',', quotechar='"', quoting=csv.QUOTE_MINIMAL)
@@ -179,7 +179,7 @@ with open('bigos_recipe.csv', mode='w') as bigos_recipe:
     employee_writer.writerow(['2 łyżki','powideł śliwkowych lub kilka suszonych śliwek'])
     employee_writer.writerow(['1','jabłko (np. reneta lub antonówka) - opcjonalnie'])
  ```
-##Utworzenie oraz zapisanie pliku CSV poprzez słowniki
+## Utworzenie oraz zapisanie pliku CSV poprzez słowniki
 
 ```python
 with open('bigos_recipe_2.csv', mode='w') as csv_file:
@@ -200,7 +200,7 @@ print(df)
 df = pandas.read_csv('bigos_recipe_3.csv', index_col='optional')
 print(df)
  ```
- ##Możemy również bezpośrednio deklarować nazwy kolumn poprzez dodanie wiersza nazw
+ ## Możemy również bezpośrednio deklarować nazwy kolumn poprzez dodanie wiersza nazw
 ```python
 df = pandas.read_csv('bigos_recipe_3.csv', 
             index_col='amount', 
@@ -208,7 +208,7 @@ df = pandas.read_csv('bigos_recipe_3.csv',
             names=['amount', 'ingredients','optional'])
 print(df)
  ```
-  ##... a następnei zapisać zmodyfikowaną tabelę do nowego pliku
+  ## ... a następnie zapisać zmodyfikowaną tabelę do nowego pliku
 ```python
 df = pandas.read_csv('bigos_recipe_3.csv', 
             index_col='amount', 
