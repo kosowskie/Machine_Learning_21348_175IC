@@ -77,14 +77,14 @@ cv2.imwrite("images/image7.jpg",im_rotate)
 im_rotate_bound = imutils.rotate_bound(image, 45)
 cv2.imwrite("images/image8.jpg",im_rotate_bound)
 ```
-[Image](images/image8.jpg)
+![Image](images/image8.jpg)
 
 # Nałożenie blura na obraz 
 ```python
 blurred = cv2.GaussianBlur(image, (99, 99), 0)
 cv2.imwrite("images/image9.jpg",blurred)
 ```
-[Image](images/image9.jpg)
+![Image](images/image9.jpg)
 
 # Narysowanie prostokąta na obrazek
 ```python
@@ -92,7 +92,7 @@ output = image.copy()
 cv2.rectangle(output, (290, 60), (460, 250), (0, 0, 0), 5)
 cv2.imwrite("images/image10.jpg",output)
 ```
-[Image](images/image10.jpg)
+![Image](images/image10.jpg)
 
 # Narysowanie kółka na obrazie
 ```python
@@ -100,7 +100,7 @@ output = image.copy()
 cv2.circle(output, (400, 160), 100, (255, 255, 255), 5)
 cv2.imwrite("images/image11.jpg",output)
 ```
-[Image](images/image11.jpg)
+![Image](images/image11.jpg)
 
 # Narysowanie linii na obrazie 
 ```python
@@ -108,7 +108,7 @@ output = image.copy()
 cv2.line(output, (215, 88), (626, 72), (0, 0, 200), 3)
 cv2.imwrite("images/image12.jpg",output)
 ```
-[Image](images/image12.jpg)
+![Image](images/image12.jpg)
 
 # Wrzucenie tekstu na obraz
 ```python
@@ -117,14 +117,14 @@ cv2.putText(output, "I don't know what i'm signing", (270, 60),
 	cv2.FONT_HERSHEY_SIMPLEX, 0.7, (0, 255, 0), 2)
 cv2.imwrite("images/image13.jpg",output)
 ```
-[Image](images/image13.jpg)
+![Image](images/image13.jpg)
 
 # Pobieranie nowego obrazu do dalszej pracy
 ```python
 logos=cv2.imread("logo_picture.jpg")
 cv2.imwrite("images/image14.jpg",logos)
 ```
-[Image](images/image14.jpg)
+![Image](images/image14.jpg)
 
 # Liczenie obiektów na obrazie
 ```python
@@ -140,21 +140,21 @@ args = vars(ap.parse_args())
 gray = cv2.cvtColor(logos, cv2.COLOR_BGR2GRAY)
 cv2.imwrite("images/image15.jpg",gray)
 ```
-[Image](images/image15.jpg)
+![Image](images/image15.jpg)
 
 # Wykrywanie krawędzi na obrazie
 ```python
 edged = cv2.Canny(gray, 30, 150)
 cv2.imwrite("images/image16.jpg",edged)
 ```
-[Image](images/image16.jpg)
+![Image](images/image16.jpg)
 
 # Threshold obrazu
 ```python
 thresh = cv2.threshold(gray, 225, 255, cv2.THRESH_BINARY_INV)[1]
 cv2.imwrite("images/image17.jpg",thresh)
 ```
-[Image](images/image17.jpg)
+![Image](images/image17.jpg)
 
 # Zaznaczanie kontur obiektów na obrazie
 ```python
@@ -166,7 +166,7 @@ for c in cnts:
 	cv2.drawContours(output, [c], -1, (240, 0, 159), 3)
 	cv2.imwrite("images/image18.jpg", output)
 ```
-[Image](images/image18.jpg)
+![Image](images/image18.jpg)
 
 # Erozje i dylatacje na obrazie
 ## Erozja
@@ -175,7 +175,7 @@ mask = thresh.copy()
 mask = cv2.erode(mask, None, iterations=2)
 cv2.imwrite("images/image19.jpg",mask)
 ```
-[Image](images/image19.jpg)
+![Image](images/image19.jpg)
 
 ## Dylatacja
 ```python
@@ -183,7 +183,7 @@ mask = thresh.copy()
 mask = cv2.dilate(mask, None, iterations=10)
 cv2.imwrite("images/image20.jpg",mask)
 ```
-[Image](images/image20.jpg)
+![Image](images/image20.jpg)
 
 # Operacje maskujące i bitowe na obrazie
 ```python
@@ -191,4 +191,4 @@ mask = thresh.copy()
 output = cv2.bitwise_and(logos, logos, mask=mask)
 cv2.imwrite("images/image21.jpg",output)
 ```
-[Image](images/image21.jpg)
+![Image](images/image21.jpg)
