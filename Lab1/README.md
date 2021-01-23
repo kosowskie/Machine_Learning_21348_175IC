@@ -1,4 +1,7 @@
+# Importy
+```python
 import numpy as np
+```
 
 # utworzenie tablicy zawierającą 10 zer,
 ```python
